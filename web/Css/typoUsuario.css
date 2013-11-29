@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29/11/2013, 01:42:54 AM
+    Author     : pako
+*/
+
+body
+{
+	background:url(../imagenes/FondoPrincipal.jpg);
+        text-shadow: 7px 7px 7px white;
+	background-repeat:no-repeat;
+        font-size: 30px;
+	background-size:cover;
+        font-family:fuente;
+	color:#333;
+        text-align: center;
+}
+
+.cabecera
+{
+	border-radius:10px;
+	margin:0 auto 0 auto;
+	text-align:center;
+	border-radius:7px;
+        border: solid 3px white;
+}
+
+img[title="cabecera"]
+{
+	border-radius:7px;
+	width:96%;
+	height:90%;
+	margin-right:2%;
+	margin:2% 2% 2% 2%;
+	box-shadow: 3px 4px 7px #FFFFFF;
+	border:ridge 1px #FFF;
+}
+
+
+
+#contenedor{
+    display: inline-block;
+    border:ridge 1px #FFF;
+    width:245px;
+    height: auto;
+    margin:0 auto 0 auto;
+    padding-bottom:20px;
+    padding-top:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px; 
+    -o-border-radius: 20px;
+    border-radius: 7px;
+    font-family:Verdana;
+    font-size:33px;
+    border:solid 3px white;
+   
+   
+}
+
+#conte{   
+    display: inline-block;
+    border:ridge 1px #FFF;
+    width:245px;
+    height: auto;
+    margin:0 auto 0 auto;
+    padding-bottom:20px;
+    padding-top:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px; 
+    -o-border-radius: 20px;
+    border-radius: 3px;
+    font-family:Verdana;
+    font-size:33px;
+    border:solid 3px white;
+    
+}
+
+#admin{
+    margin-top:1%;
+    margin-left:8%;
+    border-radius:51px;
+    box-shadow:7px 7px 7px #663300;
+    
+}
+
+#alumn{
+    margin-top:1%;
+    margin-left:8%;
+    border-radius:51px;
+    box-shadow:7px 7px 7px #663300;
+   
+}
+
+#flecha{
+    width:8%;
+    height:5%;
+    float: left;
+    margin-top:1%;
+    margin-left:2%;
+    border-radius:10px;
+    
+}
