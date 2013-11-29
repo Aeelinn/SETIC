@@ -184,3 +184,34 @@ input[img=alumno]
     margin: 4% 30%;
     width:35%;
 }
+
+#ContestaEncuesta{
+    alignment-adjust:central;
+    border:solid 2px black; 
+    background:url(../imagenes/fondo3.jpg) ;
+    margin: 0% 14%;
+    alignment-adjust:center;
+    padding:0.5%;
+    height:auto;
+    width:70%;	
+    color:black;
+    border-radius:7px;
+    text-align:center;
+    font-family:Verdana;
+    font-size:26px;
+    text-height:bold;
+}
+
+#nombreEncuesta{
+    margin: 1%;
+    alignment-adjust:center;
+    padding:1%;
+    color:black;
+    border-radius:7px;
+    text-align:center;
+    font-family:Verdana;
+    font-size:20px;
+    background:#C96;
+    border:solid 2px #000066;
+    color:white;	
+}
