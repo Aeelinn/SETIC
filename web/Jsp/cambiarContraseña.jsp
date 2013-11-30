@@ -8,8 +8,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
+
+        <script src="<%=context%>/Js/jquery.js" type="text/javascript"></script>
+        <script src="<%=context%>/Js/cambiarContraseña.js" type="text/javascript"></script>
+
         <title>Cambiar Contraseña</title>
     </head>
     <body>
@@ -28,16 +33,16 @@
             </table>
         </div>
 
-
-        <div id="actualizarDatos">    
-            <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contraseña Actual :</label> 
-            <input type="text" name="passActual"/></br><br/>
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nueva Contraseña: </label> 
-            <input type="text" name="passActual"/></br><br/>
-            <label>Confirmar Contraseña: </label> 
-            <input type="text" name="passActual"/></br><br/>
-            <input type="button" id="botonAlumno" value="Guardar Cambios"/>
-        </div>       
-
+        <form action="" id="form" method="post">
+            <div id="actualizarDatos">    
+                <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contraseña Actual :</label> 
+                <input type="text" name="actual"/></br><br/>
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nueva Contraseña: </label> 
+                <input type="text" name="nuevo"/></br><br/>
+                <label>Confirmar Contraseña: </label> 
+                <input type="text" name="confirmacion"/></br><br/>
+                <input type="submit" value="Guardar Cambios"/>
+            </div>
+        </form>
     </body>
 </html>
