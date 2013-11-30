@@ -8,10 +8,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
+        
         <script src="<%=context%>/Js/jquery.js" type="text/javascript"></script>
         <script src="<%=context%>/Js/loginAlumno.js" type="text/javascript"></script>
-        <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <title>LoginAlumno</title>
     </head>
     <body>
