@@ -36,11 +36,11 @@
         <form action="" id="form" method="post">
             <div id="actualizarDatos">    
                 <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contraseña Actual :</label> 
-                <input type="text" name="actual"/></br><br/>
+                <input type="password" name="actual"/></br><br/>
                 <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nueva Contraseña: </label> 
-                <input type="text" name="nuevo"/></br><br/>
+                <input type="password" name="nuevo"/></br><br/>
                 <label>Confirmar Contraseña: </label> 
-                <input type="text" name="confirmacion"/></br><br/>
+                <input type="password" name="confirmacion"/></br><br/>
                 <input type="submit" value="Guardar Cambios"/>
             </div>
         </form>

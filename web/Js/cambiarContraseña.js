@@ -12,9 +12,7 @@ function validar() {
         alert("Debe llenar todos los campos.");
         event.preventDefault();
     } else {
-        if (pass === confirm)
-            alert("jQuery: Password confirmed");
-        else {
+        if (newPass !== confirm) {
             alert("La nueva contraseña no coindide");
             event.preventDefault();
         }

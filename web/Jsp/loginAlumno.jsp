@@ -23,13 +23,13 @@
         </div>
         <div id="ConteLoginAlumno"> 
             <div class="logindiv">
-                <form method="post" name="formAlumno" action="http://google.com" onsubmit="validar()">
+                <form action="" id="form" method="post">
                     <table id="alumnoTable" border="1" width="auto">
                         <tr>
                             <td rowspan="3">
                                 <img src="<%=context%>/imagenes/alumno.png" title="alumno   "/></td>
                             <td> Matricula:</td>
-                            <td> <input name="matricula" type="text"/></td>
+                            <td> <input name="matricula" type="text" required/></td>
                         </tr>
                         <tr>
                             <%--<td> Contraseña:</td>
