@@ -1,103 +1,97 @@
-body
-{
-	background:url(../imagenes/FondoPrincipal.jpg);
-	background-repeat:no-repeat;
-        font-size: 30px;
-	background-size:cover;
-        font-family:fuente;
-	color:#333;
-        text-align: center;
+body {
+    background:url(../imagenes/FondoPrincipal.jpg);
+    background-repeat:no-repeat;
+    font-size: 30px;
+    background-size:cover;
+    font-family:fuente;
+    color:#333;
+    text-align: center;
 }
 
-.cabecera
-{
-	border-radius:10px;
-	margin:0 auto 0 auto;
-	text-align:center;
-	border-radius:7px;
-	border:solid 3px white;
+.cabecera {
+    border-radius:10px;
+    margin:0 auto 0 auto;
+    text-align:center;
+    border-radius:7px;
+    border:solid 3px white;
 }
 
-img[title="cabecera"]
-{
-	border-radius:7px;
-	width:96%;
-	height:90%;
-	margin-right:2%;
-	margin:2% 2% 2% 2%;
-	box-shadow: 3px 4px 7px #FFFFFF;
-	border:ridge 1px #FFF;
+img[title="cabecera"] {
+    border-radius:7px;
+    width:96%;
+    height:90%;
+    margin-right:2%;
+    margin:2% 2% 2% 2%;
+    box-shadow: 3px 4px 7px #FFFFFF;
+    border:ridge 1px #FFF;
 }
 
-
-.index
-{
-	background:url(../imagenes/fondo3.jpg);
-	color:#333;
-        text-align: justify;
-	Border:solid 2px white;
-        border-radius: 7px;
-	padding:3% 3% 3% 3%;
-	font-size:16px;
-	font-family:Verdana;
-	font-weight:bolder;
-	margin: 1% 22%;
-	width:50%;
+.index {
+    background:url(../imagenes/fondo3.jpg);
+    color:#333;
+    text-align: justify;
+    border:solid 2px white;
+    border-radius: 7px;
+    padding:3% 3% 3% 3%;
+    font-size:16px;
+    font-family:Verdana;
+    font-weight:bolder;
+    margin: 1% 22%;
+    width:50%;
 }
 
-#ingresarBoton{
-	margin-left:2%;
-	margin-top:1%;
-	border:solid 3px black;
-	padding:1% 3% 1% 3%;
-	font-family:Tahoma;
-	font-size:16px;
-	font-weight:bolder;
-	background:#CCC;
-	border-radius:7px;	
+#ingresarBoton {
+    margin-left:2%;
+    margin-top:1%;
+    border:solid 3px black;
+    padding:1% 3% 1% 3%;
+    font-family:Tahoma;
+    font-size:16px;
+    font-weight:bolder;
+    background:#CCC;
+    border-radius:7px;	
 }
 
-#ConteLoginAlumno{
-	font-weight:bolder;
-	margin: 1% 25%;
-	border-radius: 10px;
-	border:solid 4px #663333;
-	background:#963;
-	font-family:Comic Sans MS;
-	font-size:18px;
-	font-weight:bolder;
-	color:#039;
-	padding:3% 4% 3% 3%;
-	height:22%;
-	width:42%;
-        
+#ConteLoginAlumno {
+    font-weight:bolder;
+    margin: 1% 25%;
+    border-radius: 10px;
+    border:solid 4px #663333;
+    background:#963;
+    font-family:Comic Sans MS;
+    font-size:18px;
+    font-weight:bolder;
+    color:#039;
+    padding:3% 4% 3% 3%;
+    height:22%;
+    width:42%;
+
 }
 
-.logindiv{
-	font-weight:bolder;
-	
-	background-color:#C96;
-	width:100%;
-	height:98%;
-	color:white;
-	font-family:Verdana;
-	font-size:18px;
-	padding:2% 2% 2% 2%;
-	border-radius:7px;
-	padding-top:3%;
-        display:inline-block;
+.logindiv {
+    font-weight:bolder;
+
+    background-color:#C96;
+    width:100%;
+    height:98%;
+    color:white;
+    font-family:Verdana;
+    font-size:18px;
+    padding:2% 2% 2% 2%;
+    border-radius:7px;
+    padding-top:3%;
+    display:inline-block;
 }
-#flecha{
-   ;width:8%;
+
+#flecha {
+    ;width:8%;
     height:3%;
     float: left;
     margin-top:1%;
     margin-left:2%;
     border-radius:10px;
 }
-        
-	
+
 input[type=text]{border-radius: 5px;}
 input[type=password]{border-radius: 5px;}
 h1{text-align: center;}
-

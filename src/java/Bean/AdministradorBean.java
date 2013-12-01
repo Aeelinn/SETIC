@@ -46,7 +46,10 @@ public class AdministradorBean {
 
     @Override
     public String toString() {
-        return "Bean.AdministradorBean[ idAdministrador=" + idAdministrador + " ]";
+        return "Bean.AdministradorBean["
+                + " idAdministrador=" + idAdministrador
+                + " nombre=" + nombre 
+                + " contraseña=" + contraseña + " ]";
     }
 
 }

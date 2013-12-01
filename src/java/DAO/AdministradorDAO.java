@@ -7,6 +7,7 @@ package DAO;
 
 import Bean.AdministradorBean;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -15,10 +16,37 @@ import java.sql.SQLException;
  */
 public class AdministradorDAO {
 
+    private final String getAdmin
+            = "SELECT * FROM Administrador WHERE idAdministrador = 1";
     private final String setNombre
             = "UPDATE Administrador SET nombre = ? WHERE id = 1";
     private final String setContraseña
             = "UPDATE Administrador SET contraseña = ? WHERE id = 1";
+
+    public AdministradorBean getAdmin() {
+        AdministradorBean admin = null;
+
+        try {
+            PreparedStatement ps = MySQL_Connection.getConection()
+                    .prepareStatement(getAdmin);
+
+            ResultSet rs = ps.executeQuery();
+
+            //while (rs.next()) {
+            rs.next();
+            String user = rs.getString("nombre");
+            String pass = rs.getString("contraseña");
+
+            admin = new AdministradorBean(user, pass);
+            //}
+
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("AdministradorDAO/getAdmin: " + ex.getLocalizedMessage());
+        }
+
+        return admin;
+    }
 
     public void setNombre(AdministradorBean bean) {
         try {

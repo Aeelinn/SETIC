@@ -3,7 +3,11 @@
     Created on : 29/11/2013, 12:52:55 AM
     Author     : CARLOS
 --%>
-<% String context = request.getContextPath();%>  
+<%
+    String context = request.getContextPath();
+    String err = request.getAttribute("err") != null
+            ? (String) request.getAttribute("err") : "";
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,11 +28,11 @@
         </div>
         <div id="ConteLoginAlumno">
             <div class="logindiv">
-                <form action="" id="form" method="post">
+                <form action="<%=context%>/loginAdmin" id="form" method="post">
                     <table>
                         <tr>
                             <td rowspan="3">
-                                <img src="<%=context%>/imagenes/admin.png"/></td>
+                                <img alt="Administrador" src="<%=context%>/imagenes/admin.png"/></td>
                             <td> Usuario:</td>
                             <td><input name="user" type="text" required/></td>
                         </tr>
@@ -40,7 +44,11 @@
                             <td>&nbsp; </td>
                             <td><input type="submit" value="Ingresar"/></td>
                         </tr>			
+
                     </table>
+                    <%if (err != "") {%>
+                    <label style="color: red;" ><strong><%=err%></strong></label>
+                            <%}%>
                 </form>
             </div>
         </div>

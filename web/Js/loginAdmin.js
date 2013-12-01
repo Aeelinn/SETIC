@@ -1,4 +1,5 @@
 $(function() {
+    $("[name='user']").focus();
     $("form").bind("submit", validar);
 });
 
