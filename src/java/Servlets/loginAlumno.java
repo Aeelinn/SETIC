@@ -5,10 +5,9 @@
  */
 package Servlets;
 
-import Bean.AdministradorBean;
-import Gestor.loginAdminControl;
+import Bean.AlumnoBean;
+import Gestor.loginAlumnoControl;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aya
  */
-public class loginAdmin extends HttpServlet {
+public class loginAlumno extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,27 +28,16 @@ public class loginAdmin extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    loginAdminControl control = new loginAdminControl();
+    loginAlumnoControl control = new loginAlumnoControl();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        AdministradorBean bean = new AdministradorBean(user, pass);
-
-        RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/Jsp/index.jsp");
-
-        if (!control.auntenticate(bean)) {
-            request.setAttribute("err", "Error de autenticación");
-            //request.setAttribute("err", "Error de autenticación");
-            dispatcher = getServletContext()
-                    .getRequestDispatcher("/Jsp/loginAdmin.jsp");
-        }
-
-        dispatcher.forward(request, response);
+        String matricula = request.getParameter("matricula").toLowerCase();
+        AlumnoBean bean = new AlumnoBean(matricula);
+        
+        control.exist(bean);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +21,32 @@ public class AlumnoDAO {
 
     private final String consulta = "SELECT * FROM Alumno";
     private final String insertar = "INSERT INTO Alumno VALUES(?)";
+
+    public void buscar(AlumnoBean bean) {
+        try {
+            String buscar = "SELECT * FROM Alumno WHERE matricula = '"
+                    + bean.getMatricula() + "'";
+            PreparedStatement ps = MySQL_Connection.getConection()
+                    .prepareStatement(buscar);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String matricula = rs.getString("matricula");
+                JOptionPane.showMessageDialog(null, "La matricula ya existe: "
+                        + matricula);
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Se ha registrado un nueva maticula: "
+                        + bean.getMatricula());
+                insertar(bean);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("AlumnoDAO/buscar: " + ex.getMessage());
+        }
+    }
 
     public List consultar() {
         List ls = new ArrayList();

@@ -14,20 +14,19 @@
     </head>
     <body>
         <div id="cabecera">
-           <img title="cabecera" src="<%=context%>/imagenes/cabecera.png" />
+            <img title="cabecera" src="<%=context%>/imagenes/cabecera.png" />
         </div>
-        <center><h1>Ingresar como:</h1></center>
-        <div id="pincipal">
+    <center><h1>Ingresar como:</h1></center>
+    <div id="pincipal">
         <div id="contenedor">
-            <td><a href="loginAdmin.jsp"><img src="<%=context%>/imagenes/1379305940_administrator.png" id="admin"></a></td>
-            <p><td>Administrador</td></p>
+            <a href="loginAdmin.jsp"><img alt="Administrador" src="<%=context%>/imagenes/1379305940_administrator.png" id="admin"></a>
+            <p>Administrador</p>
         </div>
         <div id="conte">
-             <td><a href="loginAlumno.jsp"><img src="<%=context%>/imagenes/graduated.png" id="alumn"></a></td>
-             <p><td>Alumno</td></p>
+            <a href="loginAlumno.jsp"><img alt="Alumno" src="<%=context%>/imagenes/graduated.png" id="alumn"></a>
+            <p>Alumno</p>
         </div>
-        </div>
-         <td><a href="index.jsp"><img src="<%=context%>/imagenes/flecha (1).png" id="flecha"></a></td>
-           
-    </body>
+    </div>
+    <a href="index.jsp"><img alt="flecha" src="<%=context%>/imagenes/flecha (1).png" id="flecha"></a>
+</body>
 </html>
