@@ -34,10 +34,10 @@ public class loginAlumno extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String matricula = request.getParameter("matricula").toLowerCase();
+        String matricula = request.getParameter("matricula").toUpperCase();
         AlumnoBean bean = new AlumnoBean(matricula);
         
-        control.exist(bean);
+        control.insertar(bean);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

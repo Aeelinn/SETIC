@@ -22,7 +22,9 @@ public class AlumnoDAO {
     private final String consulta = "SELECT * FROM Alumno";
     private final String insertar = "INSERT INTO Alumno VALUES(?)";
 
-    public void buscar(AlumnoBean bean) {
+    public boolean buscar(AlumnoBean bean) {
+        boolean estado = false;
+
         try {
             String buscar = "SELECT * FROM Alumno WHERE matricula = '"
                     + bean.getMatricula() + "'";
@@ -31,21 +33,14 @@ public class AlumnoDAO {
 
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                String matricula = rs.getString("matricula");
-                JOptionPane.showMessageDialog(null, "La matricula ya existe: "
-                        + matricula);
-            } else {
-                JOptionPane.showMessageDialog(null,
-                        "Se ha registrado un nueva maticula: "
-                        + bean.getMatricula());
-                insertar(bean);
-            }
+            estado = rs.next();
 
             ps.close();
         } catch (SQLException ex) {
             System.out.println("AlumnoDAO/buscar: " + ex.getMessage());
         }
+
+        return estado;
     }
 
     public List consultar() {
