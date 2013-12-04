@@ -1,27 +1,21 @@
 <%-- 
-    Document   : actualizarDatos
-    Created on : 29/11/2013, 02:42:33 AM
-    Author     : CARLOS
+    Document   : ConsultarEncuesta
+    Created on : 3/12/2013, 03:50:41 PM
+    Author     : Carlos
 --%>
 <% String context = request.getContextPath();%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+         <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
-
-        <script src="<%=context%>/Js/jquery.js" type="text/javascript"></script>
-        <script src="<%=context%>/Js/cambiarContraseña.js" type="text/javascript"></script>
-
-        <title>Cambiar Contraseña</title>
+        <title>Activa Encuesta</title>
     </head>
     <body>
         <div class="cabecera">
             <img title="cabecera" src="<%=context%>/imagenes/cabecera.png" />
         </div>
-
         <div class="menu">
             <table width="100%">
                 <tr>
@@ -33,17 +27,19 @@
                 </tr>
             </table>
         </div>
-
-        <form action="" id="form" method="post">
-            <div id="actualizarDatos">    
-                <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contraseña Actual :</label> 
-                <input type="password" name="actual"/></br><br/>
-                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nueva Contraseña: </label> 
-                <input type="password" name="nuevo"/></br><br/>
-                <label>Confirmar Contraseña: </label> 
-                <input type="password" name="confirmacion"/></br><br/>
-                <input type="submit" value="Guardar Cambios"/>
+        <div id="actualizarDatos">
+            <p>Ingresar nombre de la encuesta: </p>
+            <input type="text" name="nombreEncuesta"/><input type="submit" id="botonIndex" value="Activar"/>
+        </div>
+                
+            <div id="actualizarDatos">
+                <label><strong> Encuestas Activas:  </strong></label> <label> 5 </label>
+                <br/><br/>
+                <p> Evaluación Docente <input type="checkbox" id="1"></p>         
+                <p> Evaluación Docente TSU  <input type="checkbox" id="2"></p>
+                <p> Evaluación Docente Ingenieria   <input type="checkbox" id="3"></p>
+                <p> Evaluación Integradora <input type="checkbox" id="4"></p>
+                <p> Evaluación Base De Datos   <input type="checkbox" id="5"></p>
             </div>
-        </form>
     </body>
 </html>

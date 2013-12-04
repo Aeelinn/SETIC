@@ -7,10 +7,10 @@ and open the template in the editor.
     Created on : 28/11/2013, 10:55:30 PM
     Author     : CARLOS
 */
-// Prueba GIT
+
 body
 {
-    background:url(../imagenes/FondoPrincipal.jpg);
+    background:url(../imagenes/fondoo.jpg);
     text-shadow: 7px 7px 7px white;
     background-repeat:no-repeat;
     font-size: 30px;
@@ -158,7 +158,7 @@ input[img=alumno]
     height:0.5%;
     border-radius:7px;
     padding:8px 5px;
-    padding-left:8%;
+    
 }
 
 #botonMenu
