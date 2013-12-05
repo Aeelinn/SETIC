@@ -1,8 +1,6 @@
-$('document').ready(init);
-
-function init() {
+$(function() {
     add();
-}
+});
 
 function add() {
     $("#encuesta").append('<span><input name="pregunta" type="text" tabindex="1"> ' +
@@ -49,21 +47,3 @@ function del() {
 //contenedor.appendChild(salto);}
 //
 //	}
-
-
-
-function CrearLabel(){
-//if(document.opciones.num[0].checked){    
-lbl = document.createElement('label');
-lbl.innerHTML = 'Bueno, Regular y Malo';
-resp3.appendChild(lbl);}
-//else{
-//lbl.removeChild('label');    
-//}
-//}
-function CrearLabel2(){ 
-lbl = document.createElement('label');
-lbl.innerHTML = 'Muy bueno ,Bueno, Regular, Malo, y Muy Malo';
-resp5.appendChild(lbl);
-
-}	

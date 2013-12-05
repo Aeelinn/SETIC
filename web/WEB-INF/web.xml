@@ -8,6 +8,10 @@
         <servlet-name>loginAlumno</servlet-name>
         <servlet-class>Servlets.loginAlumno</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>generarEncuesta</servlet-name>
+        <servlet-class>Servlets.generarEncuesta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginAdmin</servlet-name>
         <url-pattern>/loginAdmin</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>loginAlumno</servlet-name>
         <url-pattern>/loginAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>generarEncuesta</servlet-name>
+        <url-pattern>/generarEncuesta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -16,8 +16,7 @@ public class EncuestaBean {
     private int numeroDePreguntas;
     private int tipoRespuestas;
 
-    public EncuestaBean(int idencuesta, String nombre, int numeroDePreguntas, int tipoRespuestas) {
-        this.idencuesta = idencuesta;
+    public EncuestaBean(String nombre, int numeroDePreguntas, int tipoRespuestas) {
         this.nombre = nombre;
         this.numeroDePreguntas = numeroDePreguntas;
         this.tipoRespuestas = tipoRespuestas;

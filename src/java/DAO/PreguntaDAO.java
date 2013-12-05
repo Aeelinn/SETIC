@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class PreguntaDAO {
 
     private final String consulta = "SELECT * FROM Pregunta";
-    private final String insertar = "INSERT INTO Pregunta VALUES(?, ?, ?)";
+    private final String insertar = "INSERT INTO Pregunta VALUES(NULL, ?, ?)";
 
     public List consultar() {
         List ls = new ArrayList();
@@ -33,7 +33,6 @@ public class PreguntaDAO {
 
             while (rs.next()) {
                 PreguntaBean bean = new PreguntaBean(
-                        rs.getInt("idpreguntas"),
                         rs.getString("contenido"),
                         rs.getInt("encuestaIdencuesta"));
                 ls.add(bean);
@@ -54,13 +53,12 @@ public class PreguntaDAO {
             PreparedStatement ps = MySQL_Connection.getConection()
                     .prepareStatement(insertar);
 
-            ps.setInt(1, bean.getIdpreguntas());
-            ps.setInt(2, bean.getEncuestaIdencuesta());
-            ps.setString(3, bean.getContenido());
+            ps.setInt(1, bean.getEncuestaIdencuesta());
+            ps.setString(2, bean.getContenido());
 
             estado = ps.executeUpdate() != 0;
         } catch (SQLException ex) {
-            Logger.getLogger(PreguntaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("PreguntaDAO/insertar: " + ex.getMessage());;
         }
 
         return estado;

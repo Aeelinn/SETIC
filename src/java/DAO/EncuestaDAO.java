@@ -6,11 +6,14 @@
 package DAO;
 
 import Bean.EncuestaBean;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +23,7 @@ public class EncuestaDAO {
 
     private final String consulta = "SELECT * FROM Encuesta";
     private final String like = "SELECT * FROM Encuesta WHERE nombre LIKE '%?%'";
-    private final String insertar = "INSERT INTO Encuesta VALUES(?, ?, ?, ?)";
+    private final String insertar = "INSERT INTO Encuesta VALUES(NULL, ?, ?, ?)";
 
     public List consultar() {
         List ls = new ArrayList();
@@ -32,7 +35,6 @@ public class EncuestaDAO {
 
             while (rs.next()) {
                 EncuestaBean bean = new EncuestaBean(
-                        rs.getInt("idencuesta"),
                         rs.getString("nombre"),
                         rs.getInt("numeroDePreguntas"),
                         rs.getInt("tipoRespuestas")
@@ -59,7 +61,6 @@ public class EncuestaDAO {
 
             while (rs.next()) {
                 EncuestaBean bean = new EncuestaBean(
-                        rs.getInt("idencuesta"),
                         rs.getString("nombre"),
                         rs.getInt("numeroDePreguntas"),
                         rs.getInt("tipoRespuestas")
@@ -75,24 +76,70 @@ public class EncuestaDAO {
         return ls;
     }
 
-    public boolean insertar(EncuestaBean bean) {
-        boolean estado = false;
+    public int insertar(EncuestaBean bean) {
+        int index = 0;
 
         try {
-            PreparedStatement ps = MySQL_Connection.getConection()
-                    .prepareStatement(insertar);
+            Connection con = MySQL_Connection.getConection();
+            PreparedStatement ps = con.prepareStatement(insertar);
 
-            ps.setInt(1, bean.getIdencuesta());
-            ps.setString(2, bean.getNombre());
-            ps.setInt(3, bean.getNumeroDePreguntas());
-            ps.setInt(4, bean.getTipoRespuestas());
+            ps.setString(1, bean.getNombre());
+            ps.setInt(2, bean.getNumeroDePreguntas());
+            ps.setInt(3, bean.getTipoRespuestas());
 
-            estado = ps.executeUpdate() != 0;
+            ps.executeUpdate();
+            ps = con.prepareStatement("SELECT LAST_INSERT_ID()");
+
+            //ps = MySQL_Connection.getConection()
+            //        .prepareStatement("SELECT LAST_INSERT_ID()");
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                index = rs.getInt(1);
+            }
             ps.close();
         } catch (SQLException ex) {
             System.out.println("EncuestaDAO/insertar: " + ex.getLocalizedMessage());
         }
 
+        return index;
+    }
+
+    public boolean existe(EncuestaBean bean) {
+        boolean estado = false;
+
+        try {
+            PreparedStatement ps = MySQL_Connection.getConection()
+                    .prepareStatement("SELECT idencuesta FROM Encuesta WHERE nombre = \""
+                            + bean.getNombre() + "\"");
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                estado = rs.next();
+            }
+        } catch (SQLException ex) {
+            System.out.println("EncuestaDAO/existe: " + ex.getMessage());
+        }
+
         return estado;
+    }
+
+    public int getLastIndex() {
+        int index = 99;
+
+        try {
+            PreparedStatement ps = MySQL_Connection.getConection()
+                    .prepareStatement("SELECT LAST_INSERT_ID()");
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                index = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            System.out.println("PreguntaDAO/getLastIndex: " + ex.getMessage());
+        }
+
+        return index;
     }
 }
