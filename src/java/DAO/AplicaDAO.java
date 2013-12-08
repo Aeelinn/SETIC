@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -54,7 +52,7 @@ public class AplicaDAO {
             PreparedStatement ps = MySQL_Connection.getConection()
                     .prepareStatement(insertar);
 
-            ps.setInt(1, bean.getEncuestaIdencuesta());
+            ps.setInt(1, bean.getEncuestaIdEncuesta());
             ps.setInt(2, bean.getIdAdministrador());
             ps.setString(3, bean.getFecha());
 

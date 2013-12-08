@@ -11,23 +11,27 @@ package Bean;
  */
 public class EncuestaBean {
 
-    private int idencuesta;
+    private int encuestaIdencuesta;
     private String nombre;
     private int numeroDePreguntas;
     private int tipoRespuestas;
+    private String activoInicial;
+    private String activoFinal;
 
-    public EncuestaBean(String nombre, int numeroDePreguntas, int tipoRespuestas) {
+    public EncuestaBean(String nombre, int numeroDePreguntas, int tipoRespuestas, String activoInicial, String activoFinal) {
         this.nombre = nombre;
         this.numeroDePreguntas = numeroDePreguntas;
         this.tipoRespuestas = tipoRespuestas;
+        this.activoInicial = activoInicial;
+        this.activoFinal = activoFinal;
     }
 
-    public int getIdencuesta() {
-        return idencuesta;
+    public int getEncuestaIdencuesta() {
+        return encuestaIdencuesta;
     }
 
-    public void setIdencuesta(int idencuesta) {
-        this.idencuesta = idencuesta;
+    public void setEncuestaIdencuesta(int encuestaIdencuesta) {
+        this.encuestaIdencuesta = encuestaIdencuesta;
     }
 
     public String getNombre() {
@@ -54,9 +58,19 @@ public class EncuestaBean {
         this.tipoRespuestas = tipoRespuestas;
     }
 
-    @Override
-    public String toString() {
-        return "Bean.EncuestaBean[ idencuesta=" + idencuesta + " ]";
+    public String getActivoInicial() {
+        return activoInicial;
     }
 
+    public void setActivoInicial(String activoInicial) {
+        this.activoInicial = activoInicial;
+    }
+
+    public String getActivoFinal() {
+        return activoFinal;
+    }
+
+    public void setActivoFinal(String activoFinal) {
+        this.activoFinal = activoFinal;
+    }
 }

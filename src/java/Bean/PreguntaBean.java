@@ -12,8 +12,8 @@ package Bean;
 public class PreguntaBean {
 
     private int idpreguntas;
-    private String contenido;
     private int encuestaIdencuesta;
+    private String contenido;
 
     public PreguntaBean(String contenido, int encuestaIdencuesta) {
         this.contenido = contenido;

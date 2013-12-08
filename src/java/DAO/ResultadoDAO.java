@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -33,7 +31,6 @@ public class ResultadoDAO {
 
             while (rs.next()) {
                 ResultadoBean bean = new ResultadoBean(
-                        rs.getInt("idResultado"),
                         rs.getString("respuesta"),
                         rs.getInt("idpreguntas"),
                         rs.getString("matricula")

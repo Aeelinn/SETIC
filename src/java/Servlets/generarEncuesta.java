@@ -41,7 +41,7 @@ public class generarEncuesta extends HttpServlet {
         int numeroPreguntas = preguntas.length - 1;
         int numeroRespuestas = Integer.parseInt(request.getParameter("num"));
 
-        EncuestaBean encuesta = new EncuestaBean(nombre, numeroPreguntas, numeroRespuestas);
+        EncuestaBean encuesta = new EncuestaBean(nombre, numeroPreguntas, numeroRespuestas, null, null);
 
         control.insertar(encuesta, preguntas);
     }

@@ -3,8 +3,9 @@ $(function() {
 });
 
 function add() {
+    $("input:submit").click(function() { return false; });
     $("#encuesta").append('<span><input name="pregunta" type="text" tabindex="1"> ' +
-            '<input type="checkbox" name="chk" tabindex="3"/><br></span>');
+            '<input type="checkbox" name="chk"/><br></span>');
 
     var array = $("[name='chk']");
 

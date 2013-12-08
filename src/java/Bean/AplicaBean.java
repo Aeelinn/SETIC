@@ -11,22 +11,22 @@ package Bean;
  */
 public class AplicaBean {
 
-    private int encuestaIdencuesta;
+    private int encuestaIdEncuesta;
     private int idAdministrador;
     private String fecha;
 
-    public AplicaBean(int encuestaIdencuesta, int idAdministrador, String fecha) {
-        this.encuestaIdencuesta = encuestaIdencuesta;
+    public AplicaBean(int encuestaIdEncuesta, int idAdministrador, String fecha) {
+        this.encuestaIdEncuesta = encuestaIdEncuesta;
         this.idAdministrador = idAdministrador;
         this.fecha = fecha;
     }
 
-    public int getEncuestaIdencuesta() {
-        return encuestaIdencuesta;
+    public int getEncuestaIdEncuesta() {
+        return encuestaIdEncuesta;
     }
 
-    public void setEncuestaIdencuesta(int encuestaIdencuesta) {
-        this.encuestaIdencuesta = encuestaIdencuesta;
+    public void setEncuestaIdEncuesta(int encuestaIdEncuesta) {
+        this.encuestaIdEncuesta = encuestaIdEncuesta;
     }
 
     public int getIdAdministrador() {

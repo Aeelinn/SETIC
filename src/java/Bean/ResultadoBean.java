@@ -5,24 +5,21 @@
  */
 package Bean;
 
-import java.io.Serializable;
-
 /**
  *
  * @author aya
  */
-public class ResultadoBean implements Serializable {
+public class ResultadoBean {
 
     private int idResultado;
-    private String respuesta;
-    private int idpreguntas;
     private String matricula;
+    private int idpreguntas;
+    private String respuesta;
 
-    public ResultadoBean(int idResultado, String respuesta, int idpreguntas, String matricula) {
-        this.idResultado = idResultado;
-        this.respuesta = respuesta;
-        this.idpreguntas = idpreguntas;
+    public ResultadoBean(String matricula, int idpreguntas, String respuesta) {
         this.matricula = matricula;
+        this.idpreguntas = idpreguntas;
+        this.respuesta = respuesta;
     }
 
     public int getIdResultado() {

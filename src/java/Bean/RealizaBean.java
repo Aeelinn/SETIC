@@ -12,9 +12,9 @@ package Bean;
 public class RealizaBean {
 
     private int idgenera;
-    private int idPeriodo;
-    private int encuestaIdencuesta;
     private String alumnoMatricula;
+    private int encuestaIdencuesta;
+    private int idPeriodo;
 
     public RealizaBean(int idgenera, int idPeriodo, int encuestaIdencuesta, String alumnoMatricula) {
         this.idgenera = idgenera;

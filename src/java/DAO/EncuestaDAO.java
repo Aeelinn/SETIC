@@ -12,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +21,7 @@ public class EncuestaDAO {
 
     private final String consulta = "SELECT * FROM Encuesta";
     private final String like = "SELECT * FROM Encuesta WHERE nombre LIKE '%?%'";
-    private final String insertar = "INSERT INTO Encuesta VALUES(NULL, ?, ?, ?)";
+    private final String insertar = "INSERT INTO Encuesta VALUES(NULL, ?, ?, ?, ?, ?)";
 
     public List consultar() {
         List ls = new ArrayList();
@@ -37,7 +35,9 @@ public class EncuestaDAO {
                 EncuestaBean bean = new EncuestaBean(
                         rs.getString("nombre"),
                         rs.getInt("numeroDePreguntas"),
-                        rs.getInt("tipoRespuestas")
+                        rs.getInt("tipoRespuestas"),
+                        rs.getString("activoInicial"),
+                        rs.getString("activoFinal")
                 );
                 ls.add(bean);
             }
@@ -63,7 +63,9 @@ public class EncuestaDAO {
                 EncuestaBean bean = new EncuestaBean(
                         rs.getString("nombre"),
                         rs.getInt("numeroDePreguntas"),
-                        rs.getInt("tipoRespuestas")
+                        rs.getInt("tipoRespuestas"),
+                        rs.getString("activoInicial"),
+                        rs.getString("activoFinal")
                 );
                 ls.add(bean);
             }
@@ -86,13 +88,14 @@ public class EncuestaDAO {
             ps.setString(1, bean.getNombre());
             ps.setInt(2, bean.getNumeroDePreguntas());
             ps.setInt(3, bean.getTipoRespuestas());
+            ps.setString(4, bean.getActivoInicial());
+            ps.setString(5, bean.getActivoFinal());
 
             ps.executeUpdate();
             ps = con.prepareStatement("SELECT LAST_INSERT_ID()");
 
             //ps = MySQL_Connection.getConection()
             //        .prepareStatement("SELECT LAST_INSERT_ID()");
-
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 index = rs.getInt(1);

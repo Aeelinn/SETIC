@@ -4,13 +4,14 @@ $(function() {
 });
 
 function validar() {
-    var matricula = $("[name='matricula']").val();
+    var matricula = $("[name='matricula']").val() + "";
+    matricula = matricula.toLowerCase();
 
     if (matricula === "") {
         alert("Escribe un numero de matricula");
         event.preventDefault();
     } else {
-        if (!matricula.match(/^[0-9]{4}[1-3][A-Za-z]{2}[0-9]{3}$/)) {
+        if (!matricula.match(/^20[0-9]{2}[1-3]ti[0-9]{3}$/)) {
             alert("Matricula no valida");
             event.preventDefault();
         }
