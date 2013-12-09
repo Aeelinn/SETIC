@@ -22,7 +22,7 @@
     <form action="<%=context%>/generarEncuesta" method="post" name="form">
         <p>Nombre de la encuesta</p>
         <input type="text" name="nombre" value="Prueba"/>
-        <input type="date" name="cal">
+        <input type="date" name="cal" value="1992-02-29">
         <p>Cantidad de respuestas</p>
         <label>3</label><input type="radio" name="num" value="3" checked/>
         <label>5</label><input type="radio" name="num" value="5"/>

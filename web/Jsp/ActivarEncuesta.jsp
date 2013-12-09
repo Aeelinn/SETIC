@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
+        <link href="<%=context%>/Css/estiloSetic.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Activa Encuesta</title>
     </head>
@@ -27,19 +27,38 @@
                 </tr>
             </table>
         </div>
-        <div id="actualizarDatos">
-            <p>Ingresar nombre de la encuesta: </p>
-            <input type="text" name="nombreEncuesta"/><input type="submit" id="botonIndex" value="Activar"/>
-        </div>
-                
+        <%--Codigo del Servlet--%>
+        <form action="<%=context%>/activarEncuesta" method="post">
             <div id="actualizarDatos">
-                <label><strong> Encuestas Activas:  </strong></label> <label> 5 </label>
-                <br/><br/>
-                <p> Evaluación Docente <input type="checkbox" id="1"></p>         
-                <p> Evaluación Docente TSU  <input type="checkbox" id="2"></p>
-                <p> Evaluación Docente Ingenieria   <input type="checkbox" id="3"></p>
-                <p> Evaluación Integradora <input type="checkbox" id="4"></p>
-                <p> Evaluación Base De Datos   <input type="checkbox" id="5"></p>
+                <p>Ingresar nombre de la encuesta: </p>
+                <input type="text" name="nombreEncuesta"/><input type="submit" id="botonIndex" value="Activar"/>
             </div>
+
+            <div id="actualizarDatos">
+                <table border="1" cellpadding="2">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nombre</th>
+                            <th>Activación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <%--Generacion de una tabla dinamica--%>
+                </table>
+            </div>
+        </form>
+        <%--Codigo del Servlet--%>
     </body>
 </html>

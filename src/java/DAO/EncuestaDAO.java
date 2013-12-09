@@ -20,8 +20,9 @@ import java.util.List;
 public class EncuestaDAO {
 
     private final String consulta = "SELECT * FROM Encuesta";
-    private final String like = "SELECT * FROM Encuesta WHERE nombre LIKE '%?%'";
     private final String insertar = "INSERT INTO Encuesta VALUES(NULL, ?, ?, ?, ?, ?)";
+    private final String encuesta
+            = "SELECT * FROM Encuesta WHERE (SELECT CURRENT_DATE()) BETWEEN activoInicial AND activoFinal";
 
     public List consultar() {
         List ls = new ArrayList();
@@ -55,7 +56,8 @@ public class EncuestaDAO {
 
         try {
             PreparedStatement ps = MySQL_Connection.getConection()
-                    .prepareStatement(consulta);
+                    .prepareStatement(
+                            "SELECT * FROM Encuesta WHERE nombre LIKE '%" + regex + "%'");
             ps.setString(1, regex);
             ResultSet rs = ps.executeQuery();
 
@@ -128,21 +130,30 @@ public class EncuestaDAO {
         return estado;
     }
 
-    public int getLastIndex() {
-        int index = 99;
+    public EncuestaBean getEncuestaActiva() {
+        EncuestaBean bean = null;
 
         try {
             PreparedStatement ps = MySQL_Connection.getConection()
-                    .prepareStatement("SELECT LAST_INSERT_ID()");
+                    .prepareStatement(encuesta);
 
-            ResultSet rs = ps.getGeneratedKeys();
+            ResultSet rs = ps.executeQuery();
+
             if (rs.next()) {
-                index = rs.getInt(1);
+                String nombre = rs.getString("nombre");
+                int numeroDePreguntas = rs.getInt("numeroDePreguntas");
+                int tipoRespuesta = rs.getInt("tipoRespuestas");
+                String activoInicial = rs.getString("activoInicial");
+                String activoFinal = rs.getString("activoFinal");
+
+                bean = new EncuestaBean(nombre, numeroDePreguntas, tipoRespuesta, activoInicial, activoFinal);
+                bean.setEncuestaIdencuesta(rs.getInt(1));
             }
         } catch (SQLException ex) {
-            System.out.println("PreguntaDAO/getLastIndex: " + ex.getMessage());
+            System.out.println("EncuestaDAO/getEncuestaActiva: "
+                    + ex.getMessage());
         }
 
-        return index;
+        return bean;
     }
 }

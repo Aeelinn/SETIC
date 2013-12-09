@@ -5,11 +5,11 @@
  */
 package Servlets;
 
-import Bean.AlumnoBean;
-import Bean.EncuestaBean;
-import Gestor.loginAlumnoControl;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aya
  */
-public class loginAlumno extends HttpServlet {
+public class activarEncuesta extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,17 +30,30 @@ public class loginAlumno extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    loginAlumnoControl control = new loginAlumnoControl();
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
-        String matricula = request.getParameter("matricula").toUpperCase();
-        AlumnoBean bean = new AlumnoBean(matricula);
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-        EncuestaBean encuesta = control.getEncuesta(bean);
-        List preguntas = control.getPreguntas(encuesta);
+        out.println("Aun no implementado: " + format.format(date));
+
+        /*PrintWriter out = response.getWriter();
+         try {
+         out.println("<!DOCTYPE html>");
+         out.println("<html>");
+         out.println("<head>");
+         out.println("<title>Servlet activarEncuesta</title>");
+         out.println("</head>");
+         out.println("<body>");
+         out.println("<h1>Servlet activarEncuesta at " + request.getContextPath() + "</h1>");
+         out.println("</body>");
+         out.println("</html>");
+         } finally {
+         out.close();
+         }*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -12,6 +12,14 @@
         <servlet-name>generarEncuesta</servlet-name>
         <servlet-class>Servlets.generarEncuesta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>activarEncuesta</servlet-name>
+        <servlet-class>Servlets.activarEncuesta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>encuestaAlumno</servlet-name>
+        <servlet-class>Servlets.encuestaAlumno</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginAdmin</servlet-name>
         <url-pattern>/loginAdmin</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>generarEncuesta</servlet-name>
         <url-pattern>/generarEncuesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>activarEncuesta</servlet-name>
+        <url-pattern>/activarEncuesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>encuestaAlumno</servlet-name>
+        <url-pattern>/encuestaAlumno</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,14 +5,13 @@
  */
 package DAO;
 
+import Bean.EncuestaBean;
 import Bean.PreguntaBean;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,15 +19,18 @@ import java.util.logging.Logger;
  */
 public class PreguntaDAO {
 
-    private final String consulta = "SELECT * FROM Pregunta";
+    private final String consulta = "SELECT * FROM Pregunta WHERE encuestaIdencuesta = ?";
     private final String insertar = "INSERT INTO Pregunta VALUES(NULL, ?, ?)";
 
-    public List consultar() {
+    public List consultar(EncuestaBean encuesta) {
         List ls = new ArrayList();
 
         try {
             PreparedStatement ps = MySQL_Connection.getConection()
                     .prepareStatement(consulta);
+
+            ps.setInt(1, encuesta.getEncuestaIdencuesta());
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -58,7 +60,7 @@ public class PreguntaDAO {
 
             estado = ps.executeUpdate() != 0;
         } catch (SQLException ex) {
-            System.out.println("PreguntaDAO/insertar: " + ex.getMessage());;
+            System.out.println("PreguntaDAO/insertar: " + ex.getMessage());
         }
 
         return estado;

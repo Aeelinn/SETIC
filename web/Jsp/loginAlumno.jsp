@@ -23,11 +23,11 @@
         </div>
         <div id="ConteLoginAlumno"> 
             <div class="logindiv">
-                <form action="<%=context%>/loginAlumno" id="form" method="post">
+                <form action="<%=context%>/encuestaAlumno" id="form" method="post">
                     <table id="alumnoTable" border="1">
                         <tr>
                             <td rowspan="2">
-                                <img src="<%=context%>/imagenes/alumno.png" title="alumno   "/></td>
+                                <img src="<%=context%>/imagenes/alumno.png" title="alumno"/></td>
                             <td> Matricula:</td>
                             <td> <input name="matricula" type="text" required/></td>
                         </tr>

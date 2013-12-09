@@ -10,6 +10,7 @@ import Bean.EncuestaBean;
 import Gestor.loginAlumnoControl;
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aya
  */
-public class loginAlumno extends HttpServlet {
+public class encuestaAlumno extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,7 +41,21 @@ public class loginAlumno extends HttpServlet {
         AlumnoBean bean = new AlumnoBean(matricula);
 
         EncuestaBean encuesta = control.getEncuesta(bean);
-        List preguntas = control.getPreguntas(encuesta);
+
+        RequestDispatcher dispatcher = getServletContext()
+                .getRequestDispatcher("/Jsp/loginAlumno.jsp");
+
+        if (encuesta != null) {
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/Jsp/encuestaAlumno.jsp");
+
+            List preguntas = control.getPreguntas(encuesta);
+
+            request.setAttribute("encuesta", encuesta);
+            request.setAttribute("preguntas", preguntas);
+        }
+
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
