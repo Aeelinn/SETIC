@@ -15,6 +15,7 @@
         <%
             EncuestaBean encuesta = (EncuestaBean) request.getAttribute("encuesta");
             List preguntas = (List) request.getAttribute("preguntas");
+            EncuestaBean tipoRespuestas=(EncuestaBean) request.getAttribute("tipoRespuestas");
         %>
         List: <%=preguntas.size()%>
         <%--Codigo servlet--%>
@@ -28,16 +29,26 @@
         <div class="cabecera">
             <img title="cabecera" src="<%=context%>/imagenes/cabecera.png" />
         </div>
-        <div id="nombreEncuesta"> <h1><%=encuesta.getNombre()%></h1> </div>
+    <center> <h1><%=encuesta.getNombre()%></h1> </center>
         <div id="ContestaEncuesta">
             <form name="formulario">
+                
                 <%for (int i = 0; i < preguntas.size(); i++) {
                         PreguntaBean bean = (PreguntaBean) preguntas.get(i);%>
 
+                <%if (encuesta.getTipoRespuestas() == 3) {%>
                 <label><%=bean.getContenido()%></label><br/>
-                <input type="radio" name="pregunta1" value="bueno"/> Bueno
-                <input type="radio" name="pregunta1" value="regular"/> Regular
-                <input type="radio" name="pregunta1" value="malo"/>Malo
+                <input type="radio" name="<%=i%>" value="malo" required/>Malo
+                <input type="radio" name="<%=i%>" value="regular"/>Regular
+                <input type="radio" name="<%=i%>" value="bueno"/>Bueno
+                <%} else {%>
+                <label><%=bean.getContenido()%></label><br/>
+                <input type="radio" name="<%=i%>" value="muy malo"/>Muy malo
+                <input type="radio" name="<%=i%>" value="malo"/>Malo
+                <input type="radio" name="<%=i%>" value="regular"/>Regular
+                <input type="radio" name="<%=i%>" value="bueno"/>Bueno
+                <input type="radio" name="<%=i%>" value="muy bueno"/>Muy bueno
+                <%}%>
                 <br><br>
                 <%}%>
             </form>

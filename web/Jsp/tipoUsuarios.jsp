@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div id="cabecera">
+       <div class="cabecera">
             <img title="cabecera" src="<%=context%>/imagenes/cabecera.png" />
         </div>
     <center><h1>Ingresar como:</h1></center>

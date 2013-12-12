@@ -20,14 +20,14 @@
         <h1> Bienvenidos </h1>
         <div class="index">
             <p> 
-                Has ingresado al Sistema Generador de Encuestas Electrónicas de la Universidad Tecnologica de Emiliano Zapata(UTEZ).
+                Haz ingresado al Sistema Generador de Encuestas Electrónicas de la Universidad Tecnologica de Emiliano Zapata(UTEZ).
             </p>
             <p>
-                Éste un canal de comunicación construido con el objetivo de conocerte, queremos saber tu opinión y la percepción que tienes acerca de diversos temas, a través de las encuestas que aquí encontrarás. 
+                Éste es un canal de comunicación construido con el objetivo de conocerte, queremos saber tu opinión y la percepción que tienes acerca de diversos temas, a través de las encuestas que aquí encontrarás. 
                 Al participar, con tus respuestas, contribuirás a que detectemos tus necesidades y la apreciación de nuestro servicio educativo y por supuesto nos comprometemos a hacer de los resultados obtenidos, una herramienta para la mejora continua.     
             </p>    
         </div>
-        <input type="button" value="Entrar" id="botonIndex"/>
+        <a href="tipoUsuarios.jsp"> <input type="button" value="Entrar" id="botonIndex"/></a>
 
 
     </body>

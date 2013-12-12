@@ -9,6 +9,7 @@ import Bean.EncuestaBean;
 import Gestor.generarEncuestaControl;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,10 +41,17 @@ public class generarEncuesta extends HttpServlet {
         String[] preguntas = request.getParameterValues("pregunta");
         int numeroPreguntas = preguntas.length - 1;
         int numeroRespuestas = Integer.parseInt(request.getParameter("num"));
+        String fechaInicio= request.getParameter("fechaInicio");
+        String fechaFinal=request.getParameter("fechaFinal");
 
-        EncuestaBean encuesta = new EncuestaBean(nombre, numeroPreguntas, numeroRespuestas, null, null);
+        EncuestaBean encuesta = new EncuestaBean(nombre, numeroPreguntas, numeroRespuestas, fechaInicio, fechaFinal);
+       
 
         control.insertar(encuesta, preguntas);
+        
+        RequestDispatcher dispatcher = getServletContext()
+                .getRequestDispatcher("/Jsp/GenerarEncuesta.jsp");
+          dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

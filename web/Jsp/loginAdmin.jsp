@@ -37,12 +37,12 @@
                             <td><input name="user" type="text" required/></td>
                         </tr>
                         <tr>
-                            <td> Password:</td>
+                            <td> Contraseña:</td>
                             <td><input name="pass" type="password" required/></td>
                         </tr>
                         <tr>
                             <td>&nbsp; </td>
-                            <td><input type="submit" value="Ingresar"/></td>
+                            <td><input type="submit" id="ingresarBoton" value="Ingresar"/></td>
                         </tr>			
 
                     </table>

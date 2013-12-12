@@ -24,7 +24,7 @@
         <div id="ConteLoginAlumno"> 
             <div class="logindiv">
                 <form action="<%=context%>/encuestaAlumno" id="form" method="post">
-                    <table id="alumnoTable" border="1">
+                    <table id="alumnoTable" border="0">
                         <tr>
                             <td rowspan="2">
                                 <img src="<%=context%>/imagenes/alumno.png" title="alumno"/></td>
@@ -37,7 +37,7 @@
                         </tr>--%>
                         <tr>
                             <td>&nbsp; </td>
-                            <td> <input type="submit" value="Ingresar"/></td>
+                            <td> <input type="submit"  id="botonIndex" value="Ingresar"/></td>
                         </tr>
                     </table>
                 </form>

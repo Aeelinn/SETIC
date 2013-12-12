@@ -20,6 +20,10 @@
         <servlet-name>encuestaAlumno</servlet-name>
         <servlet-class>Servlets.encuestaAlumno</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cambiarContraseña</servlet-name>
+        <servlet-class>Servlets.cambiarContraseña</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginAdmin</servlet-name>
         <url-pattern>/loginAdmin</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>encuestaAlumno</servlet-name>
         <url-pattern>/encuestaAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cambiarContraseña</servlet-name>
+        <url-pattern>/cambiarContrase_a</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

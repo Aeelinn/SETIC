@@ -40,7 +40,7 @@ public class loginAdmin extends HttpServlet {
         AdministradorBean bean = new AdministradorBean(user, pass);
 
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/Jsp/index.jsp");
+                .getRequestDispatcher("/Jsp/GenerarEncuesta.jsp");
 
         if (!control.auntenticate(bean)) {
             request.setAttribute("err", "Error de autenticación");
