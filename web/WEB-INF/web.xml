@@ -24,6 +24,10 @@
         <servlet-name>cambiarContraseña</servlet-name>
         <servlet-class>Servlets.cambiarContraseña</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrarResultado</servlet-name>
+        <servlet-class>Servlets.registrarResultado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginAdmin</servlet-name>
         <url-pattern>/loginAdmin</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>cambiarContraseña</servlet-name>
         <url-pattern>/cambiarContrase_a</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarResultado</servlet-name>
+        <url-pattern>/registrarResultado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

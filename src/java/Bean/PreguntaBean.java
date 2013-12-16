@@ -15,6 +15,12 @@ public class PreguntaBean {
     private int encuestaIdencuesta;
     private String contenido;
 
+    public PreguntaBean(int idpreguntas,  String contenido,int encuestaIdencuesta) {
+        this.idpreguntas = idpreguntas;
+        this.encuestaIdencuesta = encuestaIdencuesta;
+        this.contenido = contenido;
+    }
+
     public PreguntaBean(String contenido, int encuestaIdencuesta) {
         this.contenido = contenido;
         this.encuestaIdencuesta = encuestaIdencuesta;

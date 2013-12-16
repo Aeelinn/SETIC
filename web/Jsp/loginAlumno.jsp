@@ -3,7 +3,9 @@
     Created on : 29/11/2013, 01:37:55 AM
     Author     : CARLOS
 --%>
-<% String context = request.getContextPath();%>
+<%
+    String context = request.getContextPath();
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -38,8 +38,8 @@
         <div id="actualizarDatos"> 
         <p>Nombre de la encuesta</p>
         <input type="text" name="nombre" value=""/>
-        <p>Fechad de inicio</p><p><input type="date" name="fechaInicio" value="2013-10-10">
-        <p>Fecha de termino</p><p> <input type="date" name="fechaFinal" value="2013-10-10"></p>
+        <p>Fechad de inicio</p><p><input type="date" name="fechaInicio">
+        <p>Fecha de termino</p><p> <input type="date" name="fechaFinal"></p>
         <p>Cantidad de respuestas</p>
         <label>3</label><input type="radio" name="num" value="3" checked/>
         <label>5</label><input type="radio" name="num" value="5"/>

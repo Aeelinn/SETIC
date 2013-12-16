@@ -39,7 +39,7 @@ public class loginAlumno extends HttpServlet {
         String matricula = request.getParameter("matricula").toUpperCase();
         AlumnoBean bean = new AlumnoBean(matricula);
 
-        EncuestaBean encuesta = control.getEncuesta(bean);
+        EncuestaBean encuesta = control.getEncuesta();
         List preguntas = control.getPreguntas(encuesta);
     }
 

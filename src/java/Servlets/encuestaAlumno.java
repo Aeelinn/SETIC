@@ -15,6 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,19 +42,26 @@ public class encuestaAlumno extends HttpServlet {
         String matricula = request.getParameter("matricula").toUpperCase();
         AlumnoBean bean = new AlumnoBean(matricula);
 
-        EncuestaBean encuesta = control.getEncuesta(bean);
+        EncuestaBean encuesta = control.getEncuesta();
 
         RequestDispatcher dispatcher = getServletContext()
                 .getRequestDispatcher("/Jsp/loginAlumno.jsp");
 
-        if (encuesta != null) {
-            dispatcher = getServletContext()
-                    .getRequestDispatcher("/Jsp/encuestaAlumno.jsp");
+        HttpSession session = request.getSession(true);
 
+        if (encuesta != null) {
             List preguntas = control.getPreguntas(encuesta);
 
-            request.setAttribute("encuesta", encuesta);
-            request.setAttribute("preguntas", preguntas);
+            session.setAttribute("encuesta", encuesta);
+            session.setAttribute("preguntas", preguntas);
+            session.setAttribute("matricula", matricula);
+
+            if (!control.validarUsuario(bean, encuesta)) {
+                dispatcher = getServletContext()
+                        .getRequestDispatcher("/Jsp/encuestaAlumno.jsp");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ya haz realizado la encuesta", "Info", 1);
+            }
         }
 
         dispatcher.forward(request, response);

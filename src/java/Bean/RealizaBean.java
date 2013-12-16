@@ -16,13 +16,19 @@ public class RealizaBean {
     private int encuestaIdencuesta;
     private int idPeriodo;
 
-    public RealizaBean(int idgenera, int idPeriodo, int encuestaIdencuesta, String alumnoMatricula) {
+    public RealizaBean(int idgenera, String alumnoMatricula, int encuestaIdencuesta, int idPeriodo) {
         this.idgenera = idgenera;
-        this.idPeriodo = idPeriodo;
-        this.encuestaIdencuesta = encuestaIdencuesta;
         this.alumnoMatricula = alumnoMatricula;
+        this.encuestaIdencuesta = encuestaIdencuesta;
+        this.idPeriodo = idPeriodo;
     }
 
+    public RealizaBean(String alumnoMatricula, int encuestaIdencuesta, int idPeriodo) {
+        this.alumnoMatricula = alumnoMatricula;
+        this.encuestaIdencuesta = encuestaIdencuesta;
+        this.idPeriodo = idPeriodo;
+    }
+    
     public int getIdgenera() {
         return idgenera;
     }

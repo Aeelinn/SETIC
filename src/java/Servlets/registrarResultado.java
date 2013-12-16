@@ -5,22 +5,24 @@
  */
 package Servlets;
 
-import Bean.EncuestaBean;
-import Gestor.generarEncuestaControl;
+import Bean.PreguntaBean;
+import Bean.ResultadoBean;
+import Gestor.registrarResultadoControl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aya
  */
-public class generarEncuesta extends HttpServlet {
+public class registrarResultado extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,28 +33,35 @@ public class generarEncuesta extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private final generarEncuestaControl control = new generarEncuestaControl();
+    private final registrarResultadoControl control = new registrarResultadoControl();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
 
-        String nombre = request.getParameter("nombre");
-        String[] preguntas = request.getParameterValues("pregunta");
-        int numeroPreguntas = preguntas.length - 1;
-        int numeroRespuestas = Integer.parseInt(request.getParameter("num"));
-        String fechaInicio = request.getParameter("fechaInicio");
-        String fechaFinal = request.getParameter("fechaFinal");
+        HttpSession session = request.getSession(true);
 
-        EncuestaBean encuesta = new EncuestaBean(nombre, numeroPreguntas, numeroRespuestas, fechaInicio, fechaFinal);
+        String matricula = session.getAttribute("matricula") + "";
 
-        control.insertar(encuesta, preguntas);
-        
-        RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/Jsp/GenerarEncuesta.jsp");
-        dispatcher.forward(request, response);
+        List<PreguntaBean> preguntas
+                = (List<PreguntaBean>) session.getAttribute("preguntas");
+
+        for (int i = 0; i < preguntas.size(); i++) {
+            int id = preguntas.get(i).getIdpreguntas();
+            String respuesta = request.getParameter("radio" + i);
+
+            ResultadoBean bean = new ResultadoBean(matricula, id, respuesta);
+            control.insertarResultado(bean);
+        }
+
+        control.registrarRealizacion(matricula, preguntas.get(0).getEncuestaIdencuesta());
+
+        JOptionPane.showMessageDialog(null, "Gracias por participar", "Info", 1);
+
+        getServletContext().getRequestDispatcher("/Jsp/loginAlumno.jsp")
+                .forward(request, response);
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

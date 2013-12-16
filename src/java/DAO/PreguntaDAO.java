@@ -22,8 +22,8 @@ public class PreguntaDAO {
     private final String consulta = "SELECT * FROM Pregunta WHERE encuestaIdencuesta = ?";
     private final String insertar = "INSERT INTO Pregunta VALUES(NULL, ?, ?)";
 
-    public List consultar(EncuestaBean encuesta) {
-        List ls = new ArrayList();
+    public List<PreguntaBean> consultar(EncuestaBean encuesta) {
+        List<PreguntaBean> ls = new ArrayList();
 
         try {
             PreparedStatement ps = MySQL_Connection.getConection()
@@ -35,6 +35,7 @@ public class PreguntaDAO {
 
             while (rs.next()) {
                 PreguntaBean bean = new PreguntaBean(
+                        rs.getInt(1),
                         rs.getString("contenido"),
                         rs.getInt("encuestaIdencuesta"));
                 ls.add(bean);
